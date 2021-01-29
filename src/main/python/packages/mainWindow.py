@@ -2,6 +2,7 @@ from PySide2 import QtWidgets, QtGui
 from PySide2.QtCore import *
 
 from packages.api.password import *
+from packages.loginWindow import LoginWindow
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -9,7 +10,8 @@ class MainWindow(QtWidgets.QMainWindow):
         super().__init__()
         self.ctx = ctx
         self.setWindowTitle("Password Manager")
-
+        self.w = LoginWindow(self.ctx)
+        self.w.show()
         self.setup_ui()
 
     def setup_ui(self):

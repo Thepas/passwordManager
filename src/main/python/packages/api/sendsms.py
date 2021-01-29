@@ -8,7 +8,10 @@ client = Client("ACbba09c3524af4229668efec0ed7ea4a3", "6395102521c45483db065cba2
 # change the "from_" number to your Twilio number and the "to" number
 # to the phone number you signed up for Twilio with, or upgrade your
 # account to send SMS to any phone number
-code = Password().get_random_sms_password()
-client.messages.create(to="+33781571629",
-                       from_="+14124192839",
-                       body=f"\n Voici ton code connexion: {code}")
+def sendSms():
+    code = Password().get_random_sms_password()
+    if client.messages.create(to="+33781571629",
+                           from_="+14124192839",
+                           body=f"\n Voici ton code connexion: {code}"):
+        print("envoyé")
+        return code
