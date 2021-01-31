@@ -1,34 +1,18 @@
 from PySide2 import QtWidgets, QtGui
 from PySide2.QtCore import *
 
-from packages.api.password import *
-from packages.loginWindow import LoginWindow
 
-
-class MainWindow(QtWidgets.QMainWindow):
+class HistoryTab(QtWidgets.QWidget):
     def __init__(self, ctx):
         super().__init__()
         self.ctx = ctx
-        self.setWindowTitle("Password Manager")
-        self.w = LoginWindow(self.ctx)
-        self.w.show()
-        self.setup_ui()
 
     def setup_ui(self):
-        self.create_menu()
         self.create_widgets()
         self.modify_widgets()
         self.create_layout()
         self.add_widgets_to_layout()
         self.setup_connections()
-
-    def create_menu(self):
-        mainMenu = self.menuBar()
-        fileMenu = mainMenu.addMenu("Menu")
-        exitAction = QtWidgets.QAction("Exit", self)
-        exitAction.setShortcut(QtGui.QKeySequence("escape"))
-        exitAction.triggered.connect(self.exit_app)
-        fileMenu.addAction(exitAction)
 
     def create_widgets(self):
         pass
@@ -51,5 +35,3 @@ class MainWindow(QtWidgets.QMainWindow):
     def exit_app(self):
         self.close()
 
-    def resetValue(self):
-        pass

@@ -1,6 +1,6 @@
 # we import the Twilio client from the dependency we just installed
 from twilio.rest import Client
-from packages.api.password import Password
+from package.api.password import Password
 
 # the following line needs your Twilio Account SID and Auth Token
 client = Client("ACbba09c3524af4229668efec0ed7ea4a3", "6395102521c45483db065cba259a0e99")
